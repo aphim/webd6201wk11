@@ -1,0 +1,11 @@
+let mongoDBPath = "mongodb://localhost/webd6201";
+let sessionSecret = "someSecret";
+
+
+ module.exports = {
+    DBPath: mongoDBPath,
+    Secret: sessionSecret
+} 
+/* 
+module.exports.DB = mongoDBPath;
+module.exports.Secret = sessionSecret; */
