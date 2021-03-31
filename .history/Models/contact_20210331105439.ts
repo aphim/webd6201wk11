@@ -10,6 +10,6 @@ const ContactSchema = new Schema({
     collection: "contacts"
 });
 
-export const Model = mongoose.model("Contact", ContactSchema);
+const Model = mongoose.model("Contact", ContactSchema);
 
 module.exports.Model = Model;

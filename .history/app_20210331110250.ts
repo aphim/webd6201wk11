@@ -8,7 +8,7 @@ import mongoose = require('mongoose');
 
 //APP configuration
 const indexRouter = require('./Routes/index');
-export const app = express();
+const app = express();
 
 //DB configuration
 import DBConfig = require('./Config/db');

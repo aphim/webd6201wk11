@@ -3,7 +3,7 @@ import express = require('express');
 const router = express.Router();
 
 //contact model
-import ContactModel = require("../Models/contact");
+const ContactModel = require("../Models/contact");
 const Contact = ContactModel.Model; //alias
 
 /* GET home page - with / */
@@ -67,7 +67,7 @@ router.get('/contact-list', function(req, res, next)
 {
   //res.render('index', { title: 'Contact List', page: 'contact-list', displayName: 'temp'  });
 
-  Contact.find(function(err, contacts){
+  Contact.find(function(err:Error, contacts:Object){
       if(err)
       {
         return console.error(err);

@@ -1,6 +1,6 @@
 //express config
 import express = require('express');
-const router = express.Router();
+export const router = express.Router();
 
 //contact model
 import ContactModel = require("../Models/contact");
@@ -86,4 +86,4 @@ router.get('/logout', function(req, res, next)
 
 
 
-module.exports = router;
+//module.exports = router;

@@ -1,4 +1,4 @@
-export const Path = "mongodb://localhost/webd6201";
+export const mongoDBPath = "mongodb://localhost/webd6201";
 export const sessionSecret = "someSecret";
 
 
