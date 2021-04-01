@@ -65,4 +65,39 @@ exports.router.get('/contact-list', function (req, res, next) {
 exports.router.get('/logout', function (req, res, next) {
     res.render('index', { title: 'Logout', page: 'logout', displayName: '' });
 });
+exports.router.get('/edit/:id', function (req, res, next) {
+    let id = req.params.id;
+    Contact.findById(id, {}, {}, (err, contactToEdit) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.render('index', { title: 'Edit', page: 'edit', contact: contactToEdit, displayName: '' });
+    });
+});
+exports.router.post('/edit/:id', function (req, res, next) {
+    let id = req.params.id;
+    let updatedContact = new Contact({
+        "_id": id,
+        "FullName": req.body.FullName,
+        "ContactNumber": req.body.ContactNumber,
+        "EmailAddress": req.body.EmailAddress
+    });
+    Contact.updateOne({ _id: id }, updatedContact, {}, (err) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect('/contact-list');
+    });
+});
+exports.router.get('/add', function (req, res, next) {
+    res.render('index', { title: 'Add', page: 'edit', displayName: '' });
+});
+exports.router.post('/add', function (req, res, next) {
+    res.redirect('/contact-list');
+});
+exports.router.get('/delete/:id', function (req, res, next) {
+    res.redirect('/contact-list');
+});
 //# sourceMappingURL=index.js.map

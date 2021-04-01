@@ -88,43 +88,13 @@ router.get('/logout', function(req, res, next)
 /* GET edit page - with /register */
 router.get('/edit/:id', function(req, res, next) 
 {
-  let id = req.params.id;
-
-  Contact.findById(id, {}, {}, (err, contactToEdit) =>{
-    if(err)
-    {
-      console.error(err);
-      res.end(err);
-    }
-
-    res.render('index', { title: 'Edit', page: 'edit', contact: contactToEdit, displayName: ''    });
-  });
-  
+  res.render('index', { title: 'Edit', page: 'edit', displayName: ''    });
 });
 
 /* GET edit page - with /register */
 router.post('/edit/:id', function(req, res, next) 
 {
-  let id = req.params.id;
-
-  let updatedContact = new Contact
-  ({
-    "_id": id,
-    "FullName": req.body.FullName,
-    "ContactNumber": req.body.ContactNumber,
-    "EmailAddress": req.body.EmailAddress
-  })
-
-  Contact.updateOne({_id: id}, updatedContact, {}, (err) =>{
-    if(err)
-    {
-      console.error(err);
-      res.end(err);
-    }
-    
-    res.redirect('/contact-list');
-  });
-
+  res.redirect('/contact-list');
 });
 
 /* GET add page - with /register */
