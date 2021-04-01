@@ -5,8 +5,7 @@
  */
 import createError from 'http-errors';
 import * as AppConfig from './app';
-import debug from 'debug';
-debug('week10a:server');
+let debug = require('debug')('week10a:server');
 import http from 'http';
 
 /**

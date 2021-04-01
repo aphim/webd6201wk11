@@ -1,9 +1,9 @@
 //express config
 import express from 'express';
-export const router = express.Router();
+const router = express.Router();
 
 //contact model
-import * as ContactModel from "../Models/contact";
+import ContactModel = require("../Models/contact");
 const Contact = ContactModel.Model; //alias
 
 /* GET home page - with / */

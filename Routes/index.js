@@ -1,37 +1,60 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = require("express");
-const router = express.Router();
-const ContactModel = require("../Models/contact");
+exports.router = void 0;
+const express_1 = __importDefault(require("express"));
+exports.router = express_1.default.Router();
+const ContactModel = __importStar(require("../Models/contact"));
 const Contact = ContactModel.Model;
-router.get('/', function (req, res, next) {
+exports.router.get('/', function (req, res, next) {
     res.render('index', { title: 'Home', page: 'home', displayName: '' });
 });
-router.get('/home', function (req, res, next) {
+exports.router.get('/home', function (req, res, next) {
     res.render('index', { title: 'Home', page: 'home', displayName: '' });
 });
-router.get('/about', function (req, res, next) {
+exports.router.get('/about', function (req, res, next) {
     res.render('index', { title: 'About Us', page: 'about', displayName: '' });
 });
-router.get('/services', function (req, res, next) {
+exports.router.get('/services', function (req, res, next) {
     res.render('index', { title: 'Our Services', page: 'services', displayName: '' });
 });
-router.get('/projects', function (req, res, next) {
+exports.router.get('/projects', function (req, res, next) {
     res.render('index', { title: 'Our Projects', page: 'projects', displayName: '' });
 });
-router.get('/contact', function (req, res, next) {
+exports.router.get('/contact', function (req, res, next) {
     res.render('index', { title: 'Contact Us', page: 'contact', displayName: '' });
 });
-router.get('/login', function (req, res, next) {
+exports.router.get('/login', function (req, res, next) {
     res.render('index', { title: 'Login', page: 'login', displayName: '' });
 });
-router.post('/login', function (req, res, next) {
+exports.router.post('/login', function (req, res, next) {
     res.render('index', { title: 'Contact List', page: 'contact-list', displayName: req.body.username });
 });
-router.get('/register', function (req, res, next) {
+exports.router.get('/register', function (req, res, next) {
     res.render('index', { title: 'Register', page: 'register', displayName: '' });
 });
-router.get('/contact-list', function (req, res, next) {
+exports.router.get('/contact-list', function (req, res, next) {
     Contact.find(function (err, contacts) {
         if (err) {
             return console.error(err);
@@ -40,8 +63,7 @@ router.get('/contact-list', function (req, res, next) {
         res.json(contacts);
     });
 });
-router.get('/logout', function (req, res, next) {
+exports.router.get('/logout', function (req, res, next) {
     res.render('index', { title: 'Logout', page: 'logout', displayName: '' });
 });
-module.exports = router;
 //# sourceMappingURL=index.js.map
