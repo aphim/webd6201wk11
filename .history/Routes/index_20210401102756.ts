@@ -167,7 +167,6 @@ router.get('/delete/:id', function(req, res, next)
       console.error(err);
       res.end(err);
     }
-    
     res.redirect('/contact-list');
   });
 

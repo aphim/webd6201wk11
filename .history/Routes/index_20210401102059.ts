@@ -113,7 +113,7 @@ router.post('/edit/:id', function(req, res, next)
     "FullName": req.body.FullName,
     "ContactNumber": req.body.ContactNumber,
     "EmailAddress": req.body.EmailAddress
-  });
+  })
 
   Contact.updateOne({_id: id}, updatedContact, {}, (err) =>{
     if(err)
@@ -136,41 +136,13 @@ router.get('/add', function(req, res, next)
 /* POST add page - with /register */
 router.post('/add', function(req, res, next) 
 {
-
-  let newContact = new Contact
-  ({
-    "FullName": req.body.FullName,
-    "ContactNumber": req.body.ContactNumber,
-    "EmailAddress": req.body.EmailAddress
-  });
-
-  Contact.create(newContact, (err)=>{    
-    if(err)
-    {
-      console.error(err);
-      res.end(err);
-    }
-
-    res.redirect('/contact-list');
-  });
-
+  res.redirect('/contact-list');
 });
 
 /* GET add page - with /register */
 router.get('/delete/:id', function(req, res, next) 
 {
-  let id = req.params.id;
-
-  Contact.remove({_id:id}, (err) =>{
-    if(err)
-    {
-      console.error(err);
-      res.end(err);
-    }
-    
-    res.redirect('/contact-list');
-  });
-
+  res.redirect('/contact-list');
 });
 
 //module.exports = router;
