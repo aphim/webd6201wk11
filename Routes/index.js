@@ -49,7 +49,7 @@ exports.router.get('/login', function (req, res, next) {
     res.render('index', { title: 'Login', page: 'login', displayName: '' });
 });
 exports.router.post('/login', function (req, res, next) {
-    res.render('index', { title: 'Contact List', page: 'contact-list', displayName: req.body.username });
+    res.redirect('/contact-list');
 });
 exports.router.get('/register', function (req, res, next) {
     res.render('index', { title: 'Register', page: 'register', displayName: '' });
@@ -59,8 +59,7 @@ exports.router.get('/contact-list', function (req, res, next) {
         if (err) {
             return console.error(err);
         }
-        console.log(contacts);
-        res.json(contacts);
+        res.render('index', { title: 'Contact List', page: 'contact-list', contacts: contacts, displayName: 'temp' });
     });
 });
 exports.router.get('/logout', function (req, res, next) {
